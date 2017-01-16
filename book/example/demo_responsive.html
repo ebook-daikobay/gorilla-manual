@@ -1,0 +1,80 @@
+<style>
+.demo-container {
+  width: 100%;
+  margin:0px auto;
+  text-align:center;
+}
+</style>
+
+<div class="demo-container">
+  <canvas id="player">
+    This browser not supported canvas.
+  </canvas>
+</div>
+
+<script type="text/javascript" src="https://s.yimg.jp/bdv/yahoo/rl/js/h2md/v1/h2md.js"></script>
+<script type="text/javascript">
+var parentWindow = window.top;
+var frameElement = window.frameElement;
+var resource = {
+  pc: {
+    url: 'https://s.yimg.jp/bdv/yahoo/rl/img/smartvision/h2md/trimmed_2',
+    width: 640,
+    height: 360,
+    videoWidth: 640,
+    videoHeight: 360
+  },
+  smartphone: {
+    url: 'https://s.yimg.jp/bdv/yahoo/rl/img/smartvision/h2md/android64/trimmed_2',
+    width: 320,
+    height: 180,
+    videoWidth: 640,
+    videoHeight: 360
+  },
+  current: undefined
+};
+var canvas = document.getElementById('player');
+var instance = newH2MD('player');
+
+function newH2MD(id) {
+  var instance = new H2MD();
+  instance.jsonp(true);
+  instance.canvas(id);
+  instance.loop(true);
+  return instance;
+}
+
+function onresize() {
+  var innerWidth = parentWindow.innerWidth;
+
+  // for smartphone
+  if (innerWidth < 700) {
+    reopen(resource.smartphone);
+  }
+  // for pc
+  else {
+    reopen(resource.pc);
+  }
+}
+
+function reopen(prop) {
+  if (resource.current === prop.url) {
+    return;
+  }
+  resource.current = prop.url;
+  instance.pause();
+  instance = newH2MD('player');
+  instance.open(prop.url, function () {
+    canvas.width = prop.videoWidth;
+    canvas.height = prop.videoHeight;
+    canvas.style.width = prop.width + 'px';
+    canvas.style.height = prop.height + 'px';
+    frameElement.style.height = (prop.height + 20) + 'px';
+    instance.play();
+  });
+}
+
+// iframeの中だとresizeが起きない
+window.top.addEventListener('resize', onresize, false);
+onresize();
+</script>

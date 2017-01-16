@@ -1,0 +1,33 @@
+{
+  "このページに説明書いてるで": "http://colobu.com/2014/10/09/gitbook-quickstart/",
+  "gitbook": ">=2.3.3",
+  "language": "ja",
+  "title": "エンコードツール実装マニュアル",
+  "variables": {
+    "domain": "manual.gorilab.richlab.io",
+    "host": "richlab.io",
+    "tool": "https://console.richlab.io/encoder/",
+    "logo_url": "https://console.richlab.io/svg/encoder_logo_rgb.svg",
+    "js": {
+      "http": "http://i.yimg.jp/bdv/yahoo/rl/js/h2md/v1/h2md.js",
+      "https": "https://s.yimg.jp/bdv/yahoo/rl/js/h2md/v1/h2md.js"
+    }
+  },
+  "styles": {
+    "website": "styles/website.css"
+  },
+  "links": {
+    "sidebar": {
+      "エンコードツール": "https://console.richlab.io/encoder/",
+      "JavaScriptライブラリ仕様書": "https://h2md.axell-embedded.com/supports/documents.html"
+    },
+    "sharing": {
+      "gitbook": false,
+      "google": false,
+      "facebook": false,
+      "twitter": false,
+      "weibo": false,
+      "all": false
+    }
+  }
+}

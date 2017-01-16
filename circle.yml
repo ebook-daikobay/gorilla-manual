@@ -1,0 +1,26 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+
+machine:
+  timezone:
+    Asia/Tokyo
+  node:
+    version: 4.3.1
+
+dependencies:
+  post:
+    - npm run build
+
+test:
+  override:
+    - echo 'ok'
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git config --global user.name $GIT_DEPLOY_USER_NAME
+      - git config --global user.email $GIT_DEPLOY_USER_EMAIL
+      - npm run gh-pages

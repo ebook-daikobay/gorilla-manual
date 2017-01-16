@@ -1,0 +1,24 @@
+<style>
+.demo-container {
+  width: 100%;
+  margin:0px auto;
+  text-align:center;
+}
+</style>
+
+<div class="demo-container">
+  <canvas id="player" width=640 height=360 style="width:320px;height:180px;">
+    This browser not supported canvas.
+  </canvas>
+</div>
+
+<script type="text/javascript" src="https://s.yimg.jp/bdv/yahoo/rl/js/h2md/1.5.0/h2md.js"></script>
+<script type="text/javascript">
+var instance = new H2MD();
+instance.jsonp(true);
+instance.canvas('player');
+instance.loop(true);
+instance.open('https://s.yimg.jp/bdv/yahoo/rl/img/smartvision/h2md/trimmed_2', function () {
+  instance.play();
+});
+</script>
