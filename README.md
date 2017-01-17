@@ -31,3 +31,11 @@ available via `npm run-script`:
   gh-pages
     gulp gh-pages
 ```
+
+## gh-pages本番反映方法
+```
+1. $ git checkout master
+2. book/*を編集
+3. $ gulp gh-pages
+      gh-pagesブランチにプッシュされる。
+```
