@@ -1,0 +1,523 @@
+<!DOCTYPE HTML>
+<html lang="ja" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>端末によってサイズを変更する | エンコードツール実装マニュアル ver.0.0.0</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../styles/website.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../example/w_alpha_play.html" />
+    
+    
+    <link rel="prev" href="../example/audio_play.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.7"
+        data-chapter-title="端末によってサイズを変更する"
+        data-filepath="example/responsive.md"
+        data-basepath=".."
+        data-revision="Tue Jan 17 2017 10:36:37 GMT+0900 (JST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://console.richlab.io/encoder/" target="blank" class="custom-link">エンコードツール</a>
+                </li>
+            
+                
+                <li>
+                    <a href="https://h2md.axell-embedded.com/supports/documents.html" target="blank" class="custom-link">JavaScriptライブラリ仕様書</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        はじめに
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="download/index.html">
+            
+                
+                    <a href="../download/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        ダウンロード
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="download/preview.html">
+            
+                
+                    <a href="../download/preview.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        H2MDライブプレビューツール
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="encode/index.html">
+            
+                
+                    <a href="../encode/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        エンコードプリセットについて
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="encode/block_size.html">
+            
+                
+                    <a href="../encode/block_size.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        ブロックサイズ
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="encode/jsonp_b64.html">
+            
+                
+                    <a href="../encode/jsonp_b64.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        jsonpとb64
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="encode/alpha.html">
+            
+                
+                    <a href="../encode/alpha.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        アルファ動画
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="example/index.html">
+            
+                
+                    <a href="../example/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        実装サンプルコード
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="example/resource.html">
+            
+                
+                    <a href="../example/resource.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        リソース指定の方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="example/play.html">
+            
+                
+                    <a href="../example/play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        H2MD動画を再生する方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="example/device_play.html">
+            
+                
+                    <a href="../example/device_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        使うH2MDリソースを変える
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="example/buffered_play.html">
+            
+                
+                    <a href="../example/buffered_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        読み込み完了を待って再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="example/sync_play.html">
+            
+                
+                    <a href="../example/sync_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        2つのプレイヤーをシンクさせる
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="example/audio_play.html">
+            
+                
+                    <a href="../example/audio_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        音声と同時に再生させる方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.7" data-path="example/responsive.html">
+            
+                
+                    <a href="../example/responsive.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        端末によってサイズを変更する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="example/w_alpha_play.html">
+            
+                
+                    <a href="../example/w_alpha_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        2つのアルファ動画の再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="example/inview_play.html">
+            
+                
+                    <a href="../example/inview_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        動画のインビュー再生
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    GitBookで公開 
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >エンコードツール実装マニュアル ver.0.0.0</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x7AEF;&#x672B;&#x306B;&#x3088;&#x3063;&#x3066;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;">&#x7AEF;&#x672B;&#x306B;&#x3088;&#x3063;&#x3066;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;</h1>
+<p>&#x3044;&#x308F;&#x3086;&#x308B;&#x30EC;&#x30B9;&#x30DD;&#x30F3;&#x30B7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x306B;&#x3088;&#x308B;&#x5B9F;&#x88C5;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x3059;&#x3002;
+&#x7AEF;&#x672B;&#x306E;&#x6A2A;&#x5E45;&#x306B;&#x3088;&#x3063;&#x3066;&#x30D7;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3084;&#x4F7F;&#x3046;&#x3079;&#x304D;H2MD&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306F;&#x7570;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x7279;&#x306B;PC&#x3068;&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30D5;&#x30A9;&#x30F3;&#x3078;&#x30EC;&#x30B9;&#x30DD;&#x30F3;&#x30B7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x3068;&#x304D;&#x306F;FPS&#x306A;&#x3069;&#x5909;&#x66F4;&#x3057;&#x305F;&#x307B;&#x3046;&#x304C;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">canvas</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;player&quot;</span>&gt;</span>
+  This browser don&apos;t support canvas tag.
+<span class="hljs-tag">&lt;/<span class="hljs-title">canvas</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x4F7F;&#x3044;&#x5206;&#x3051;&#x308B;&#x30EA;&#x30BD;&#x30FC;&#x30B9;</span>
+<span class="hljs-keyword">var</span> resource = {
+  pc: {
+    url: <span class="hljs-string">&apos;pc&#x7528;&#x306E;H2MD&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;URL&apos;</span>,
+    <span class="hljs-comment">// &#x8868;&#x793A;&#x30B5;&#x30A4;&#x30BA;</span>
+    width: <span class="hljs-number">640</span>,
+    height: <span class="hljs-number">360</span>,
+    <span class="hljs-comment">// &#x30D3;&#x30C7;&#x30AA;&#x306E;&#x30B5;&#x30A4;&#x30BA;</span>
+    videoWidth: <span class="hljs-number">640</span>,
+    videoHeight: <span class="hljs-number">360</span>
+  },
+  smartphone: {
+    url: <span class="hljs-string">&apos;smartphone&#x7528;&#x306E;H2MD&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;URL&apos;</span>,
+    <span class="hljs-comment">// &#x8868;&#x793A;&#x30B5;&#x30A4;&#x30BA;</span>
+    width: <span class="hljs-number">320</span>,
+    height: <span class="hljs-number">180</span>,
+    <span class="hljs-comment">// &#x30D3;&#x30C7;&#x30AA;&#x306E;&#x30B5;&#x30A4;&#x30BA;</span>
+    videoWidth: <span class="hljs-number">640</span>,
+    videoHeight: <span class="hljs-number">360</span>
+  },
+  current: <span class="hljs-literal">undefined</span>
+};
+<span class="hljs-comment">// &#x30EC;&#x30B9;&#x30DD;&#x30F3;&#x30B7;&#x30D6;&#x306B;&#x30D7;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;&#x305F;&#x3081;canvas&#x8981;&#x7D20;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x304A;&#x304F;</span>
+<span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;player&apos;</span>);
+
+<span class="hljs-comment">// &#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;&#x5834;&#x5408;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306F;&#x4F7F;&#x3044;&#x307E;&#x308F;&#x3055;&#x305A;&#x65B0;&#x3057;&#x3044;&#x3082;&#x306E;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;</span>
+<span class="hljs-comment">// &#x95A2;&#x6570;&#x5316;&#x3057;&#x3066;&#x304A;&#x304F;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">newH2MD</span>(<span class="hljs-params">id</span>) </span>{
+  <span class="hljs-keyword">var</span> instance = <span class="hljs-keyword">new</span> H2MD();
+  instance.jsonp(<span class="hljs-literal">true</span>);
+  instance.canvas(id);
+  instance.loop(<span class="hljs-literal">true</span>);
+  <span class="hljs-keyword">return</span> instance;
+}
+
+<span class="hljs-comment">// &#x753B;&#x9762;&#x30B5;&#x30A4;&#x30BA;&#x306E;&#x5909;&#x66F4;&#x304C;&#x3042;&#x3063;&#x305F;&#x3089;&#x52D5;&#x304B;&#x3059;&#x30EA;&#x30B9;&#x30CA;&#x30FC;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onresize</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// &#x753B;&#x9762;&#x5E45;</span>
+  <span class="hljs-keyword">var</span> innerWidth = <span class="hljs-built_in">window</span>.innerWidth;
+
+  <span class="hljs-comment">// &#x753B;&#x9762;&#x5E45;&#x306B;&#x3088;&#x3063;&#x3066;&#x4F7F;&#x3046;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x9078;&#x629E;</span>
+  <span class="hljs-keyword">if</span> (innerWidth &lt; <span class="hljs-number">700</span>) {
+    reopen(resource.smartphone);
+  }
+  <span class="hljs-comment">// for pc</span>
+  <span class="hljs-keyword">else</span> {
+    reopen(resource.pc);
+  }
+}
+
+<span class="hljs-comment">// &#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x66F4;&#x65B0;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reopen</span>(<span class="hljs-params">prop</span>) </span>{
+  <span class="hljs-keyword">if</span> (resource.current === prop.url) {
+    <span class="hljs-keyword">return</span>;
+  }
+  resource.current = prop.url;
+  <span class="hljs-comment">// &#x53E4;&#x3044;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x3092;&#x505C;&#x6B62;</span>
+  <span class="hljs-keyword">if</span> (instance) {
+    instance.pause();
+  }
+  <span class="hljs-comment">// &#x4F7F;&#x3046;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306F;&#x65B0;&#x3057;&#x3044;&#x3082;&#x306E;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;</span>
+  instance = newH2MD(<span class="hljs-string">&apos;player&apos;</span>);
+  <span class="hljs-comment">// &#x65B0;&#x3057;&#x3044;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x30AA;&#x30FC;&#x30D7;&#x30F3;&#x3057;&#x3001;&#x8868;&#x793A;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x6574;&#x3048;&#x308B; </span>
+  instance.open(prop.url, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    canvas.width = prop.videoWidth;
+    canvas.height = prop.videoHeight;
+    canvas.style.width = prop.width + <span class="hljs-string">&apos;px&apos;</span>;
+    canvas.style.height = prop.height + <span class="hljs-string">&apos;px&apos;</span>;
+    <span class="hljs-comment">// &#x518D;&#x751F;</span>
+    instance.play();
+  });
+}
+
+<span class="hljs-comment">// &#x753B;&#x9762;&#x30B5;&#x30A4;&#x30BA;&#x306E;&#x5909;&#x66F4;&#x3092;&#x76E3;&#x8996;</span>
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;resize&apos;</span>, onresize, <span class="hljs-literal">false</span>);
+onresize();
+</code></pre>
+<iframe src="./demo_responsive.html"></iframe>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../example/audio_play.html" class="navigation navigation-prev " aria-label="Previous page: 音声と同時に再生させる方法"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../example/w_alpha_play.html" class="navigation navigation-next " aria-label="Next page: 2つのアルファ動画の再生"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[],"gitbook":false},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

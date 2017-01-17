@@ -1,0 +1,469 @@
+<!DOCTYPE HTML>
+<html lang="ja" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>ブロックサイズ | エンコードツール実装マニュアル ver.0.0.0</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../styles/website.css">
+    
+
+        
+    
+    
+    <link rel="next" href="../encode/jsonp_b64.html" />
+    
+    
+    <link rel="prev" href="../encode/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.1"
+        data-chapter-title="ブロックサイズ"
+        data-filepath="encode/block_size.md"
+        data-basepath=".."
+        data-revision="Tue Jan 17 2017 10:36:37 GMT+0900 (JST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://console.richlab.io/encoder/" target="blank" class="custom-link">エンコードツール</a>
+                </li>
+            
+                
+                <li>
+                    <a href="https://h2md.axell-embedded.com/supports/documents.html" target="blank" class="custom-link">JavaScriptライブラリ仕様書</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        はじめに
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="download/index.html">
+            
+                
+                    <a href="../download/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        ダウンロード
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="download/preview.html">
+            
+                
+                    <a href="../download/preview.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        H2MDライブプレビューツール
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="encode/index.html">
+            
+                
+                    <a href="../encode/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        エンコードプリセットについて
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1" data-path="encode/block_size.html">
+            
+                
+                    <a href="../encode/block_size.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        ブロックサイズ
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="encode/jsonp_b64.html">
+            
+                
+                    <a href="../encode/jsonp_b64.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        jsonpとb64
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="encode/alpha.html">
+            
+                
+                    <a href="../encode/alpha.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        アルファ動画
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="example/index.html">
+            
+                
+                    <a href="../example/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        実装サンプルコード
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="example/resource.html">
+            
+                
+                    <a href="../example/resource.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        リソース指定の方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="example/play.html">
+            
+                
+                    <a href="../example/play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        H2MD動画を再生する方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="example/device_play.html">
+            
+                
+                    <a href="../example/device_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        使うH2MDリソースを変える
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="example/buffered_play.html">
+            
+                
+                    <a href="../example/buffered_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        読み込み完了を待って再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="example/sync_play.html">
+            
+                
+                    <a href="../example/sync_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        2つのプレイヤーをシンクさせる
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="example/audio_play.html">
+            
+                
+                    <a href="../example/audio_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        音声と同時に再生させる方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="example/responsive.html">
+            
+                
+                    <a href="../example/responsive.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        端末によってサイズを変更する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="example/w_alpha_play.html">
+            
+                
+                    <a href="../example/w_alpha_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        2つのアルファ動画の再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="example/inview_play.html">
+            
+                
+                    <a href="../example/inview_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        動画のインビュー再生
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    GitBookで公開 
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >エンコードツール実装マニュアル ver.0.0.0</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;">&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;</h1>
+<p>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;&#x306F;<code>8,16,32,64</code>&#x306E;4&#x3064;&#x304B;&#x3089;&#x9078;&#x3073;&#x307E;&#x3059;&#x3002;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;&#x306F;&#x5927;&#x304D;&#x3044;&#x307B;&#x3068;&#x3099;&#x30C6;&#x3099;&#x30B3;&#x30FC;&#x30C8;&#x3099;&#x901F;&#x5EA6;&#x306F;&#x5411;&#x4E0A;&#x3057;&#x307E;&#x3059;&#x304B;&#x3099;&#x3001;&#x4E3B;&#x89B3;&#x753B;&#x8CEA;&#x304B;&#x3099;&#x4F4E;&#x4E0B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">8</th>
+<th style="text-align:center">16</th>
+<th style="text-align:center">32</th>
+<th style="text-align:center">64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span style="color:green;">&#x9AD8;&#x753B;&#x8CEA;</span></td>
+<td style="text-align:center">&#x3084;&#x3084;&#x9AD8;&#x753B;&#x8CEA;</td>
+<td style="text-align:center">&#x3084;&#x3084;&#x4F4E;&#x753B;&#x8CEA;</td>
+<td style="text-align:center"><span style="color:red;">&#x4F4E;&#x753B;&#x8CEA;</span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:red;">&#x9AD8;&#x8CA0;&#x8377;</span></td>
+<td style="text-align:center">&#x3084;&#x3084;&#x9AD8;&#x8CA0;&#x8377;</td>
+<td style="text-align:center">&#x3084;&#x3084;&#x4F4E;&#x8CA0;&#x8377;</td>
+<td style="text-align:center"><span style="color:green;">&#x4F4E;&#x8CA0;&#x8377;</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x3042;&#x304F;&#x307E;&#x3067;&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5909;&#x66F4;&#x3057;&#x305F;&#x5834;&#x5408;&#x306E;&#x6BD4;&#x8F03;&#x3067;&#x4F4E;&#x753B;&#x8CEA;&#x3067;&#x3082;&#x7DBA;&#x9E97;&#x306A;&#x52D5;&#x753B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;</p>
+</blockquote>
+<h2 id="&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;&#x306E;&#x9078;&#x3073;&#x65B9;">&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;&#x306E;&#x9078;&#x3073;&#x65B9;</h2>
+<p>&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x30B5;&#x30A4;&#x30BA;&#x306E;&#x5024;&#x306F;&#x4F4E;&#x3044;&#x307B;&#x3069;&#x753B;&#x8CEA;&#x304C;&#x5411;&#x4E0A;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x6BD4;&#x4F8B;&#x3057;&#x3066;&#x30C7;&#x30B3;&#x30FC;&#x30C9;&#x51E6;&#x7406;&#x306E;&#x8CA0;&#x8377;&#x304C;&#x9AD8;&#x307E;&#x308B;&#x305F;&#x3081;&#x3001;&#x4F4E;&#x6027;&#x80FD;&#x306E;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x3067;&#x306F;&#x518D;&#x751F;&#x6642;&#x306B;&#x52D5;&#x753B;&#x304C;&#x30AB;&#x30AF;&#x3064;&#x3044;&#x3066;&#x3057;&#x307E;&#x3046;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;&#x3048;&#x3070;iPhone&#x3068;Android&#x7AEF;&#x672B;&#x3060;&#x3068;&#x3001;iPhone&#x306F;8&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x3067;&#x3082;&#x5B89;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x304C;Android&#x306F;32&#x30D6;&#x30ED;&#x30C3;&#x30AF;&#x4EE5;&#x4E0A;&#x3067;&#x5B89;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3046;&#x3044;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;iPhone&#x3068;Android&#x3067;&#x4F7F;&#x3046;H2MD&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x5206;&#x3051;&#x308B;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3092;<a href="../example/device_play.html">&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306B;&#x3088;&#x3063;&#x3066;&#x4F7F;&#x3046;H2MD&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x5206;&#x3051;&#x308B;&#x65B9;&#x6CD5;</a>&#x3067;&#x7D39;&#x4ECB;&#x3057;&#x3066;&#x307E;&#x3059;&#x306E;&#x3067;&#x3054;&#x53C2;&#x7167;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../encode/index.html" class="navigation navigation-prev " aria-label="Previous page: エンコードプリセットについて"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../encode/jsonp_b64.html" class="navigation navigation-next " aria-label="Next page: jsonpとb64"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[],"gitbook":false},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
