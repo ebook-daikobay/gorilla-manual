@@ -38,7 +38,24 @@ instance.jsonp(true);
 ```js
 instance.loop(true);
 ```
-
 となります。
 
 <iframe src="./demo_play.html"></iframe>
+
+また、jsonp形式で同じ動画リソースを使用した複数動画再生をする場合、以下のサンプルのように、順番にH2MDリソースを読み込んでいただく必要があります。
+
+```js 
+instance1.open('h2mdリソース', function () {
+  instance2.open('instance1で読み込んでいるものと同じh2mdリソース', function () { 
+  });
+});
+```
+同じリソースを使わない場合は、順番に読み込む必要はありません。
+
+```js 
+instance1.open('h2mdリソース', function () {
+}); 
+instance2.open('instance1で読み込んでいるものと別のh2mdリソース', function () { 
+});
+```
+

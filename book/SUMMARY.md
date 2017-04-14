@@ -15,4 +15,5 @@
   * [音声と同時に再生させる方法](example/audio_play.md)
   * [端末によってサイズを変更する](example/responsive.md)
   * [2つのアルファ動画の再生](example/w_alpha_play.md)
-  * [動画のインビュー再生](example/inview_play.md)
+  * [動画のインビュー再生](example/inview_play.md) 
+  * [コントローラーの実装](example/controller.md)
