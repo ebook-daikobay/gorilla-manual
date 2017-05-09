@@ -11,7 +11,7 @@ Webページのファーストビューに動画プレイヤーが表示され�
 
 ```html
 <canvas id="player"></canvas>
-<script type="text/javascript" src="https://s.yimg.jp/bdv/yahoo/rl/js/h2md-axell/1.0.6.0_rlpatched/h2md.min.js"></script>
+<script type="text/javascript" src="https://s.yimg.jp/bdv/yahoo/rl/js/h2md-axell/1.0.6.0_rlpatched/h2md.min.js?201705091500"></script>
 <script>
 // プレイヤー要素
 var playerElement = document.getElementById('player');
