@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html lang="ja" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>コントローラーの実装 | エンコードツール実装マニュアル ver.0.0.0</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="../styles/website.css">
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="../example/inview_play.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="3.10"
+        data-chapter-title="コントローラーの実装"
+        data-filepath="example/controller.md"
+        data-basepath=".."
+        data-revision="Wed May 10 2017 12:09:15 GMT+0900 (JST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://console.richlab.io/encoder/" target="blank" class="custom-link">エンコードツール</a>
+                </li>
+            
+                
+                <li>
+                    <a href="https://h2md.axell-embedded.com/supports/documents.html" target="blank" class="custom-link">JavaScriptライブラリ仕様書</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        はじめに
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="download/index.html">
+            
+                
+                    <a href="../download/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        ダウンロード
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="download/preview.html">
+            
+                
+                    <a href="../download/preview.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        H2MDライブプレビューツール
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="encode/index.html">
+            
+                
+                    <a href="../encode/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        エンコードプリセットについて
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="encode/block_size.html">
+            
+                
+                    <a href="../encode/block_size.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        ブロックサイズ
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="encode/jsonp_b64.html">
+            
+                
+                    <a href="../encode/jsonp_b64.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        jsonpとb64
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="encode/alpha.html">
+            
+                
+                    <a href="../encode/alpha.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        アルファ動画
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="example/index.html">
+            
+                
+                    <a href="../example/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        実装サンプルコード
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="example/resource.html">
+            
+                
+                    <a href="../example/resource.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        リソース指定の方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="example/play.html">
+            
+                
+                    <a href="../example/play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        H2MD動画を再生する方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="example/device_play.html">
+            
+                
+                    <a href="../example/device_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        使うH2MDリソースを変える
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="example/buffered_play.html">
+            
+                
+                    <a href="../example/buffered_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        読み込み完了を待って再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="example/sync_play.html">
+            
+                
+                    <a href="../example/sync_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        2つのプレイヤーをシンクさせる
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="example/audio_play.html">
+            
+                
+                    <a href="../example/audio_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        音声と同時に再生させる方法
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="example/responsive.html">
+            
+                
+                    <a href="../example/responsive.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        端末によってサイズを変更する
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="example/w_alpha_play.html">
+            
+                
+                    <a href="../example/w_alpha_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        2つのアルファ動画の再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="example/inview_play.html">
+            
+                
+                    <a href="../example/inview_play.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        動画のインビュー再生
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.10" data-path="example/controller.html">
+            
+                
+                    <a href="../example/controller.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        コントローラーの実装
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    GitBookで公開 
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >エンコードツール実装マニュアル ver.0.0.0</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h2 id="&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x306E;&#x5B9F;&#x88C5;">&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x306E;&#x5B9F;&#x88C5;</h2>
+<p>H2MD&#x30D7;&#x30EC;&#x30A4;&#x30E4;&#x30FC;&#x306B;&#x306F;&#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x306A;&#x3069;&#x306E;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x90E8;&#x54C1;&#x306F;&#x542B;&#x307E;&#x308C;&#x3066;&#x304A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30E9;&#x30FC;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;H2MD&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306E;API&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5B9F;&#x88C5;&#x3057;&#x3066;&#x3044;&#x305F;&#x3060;&#x304F;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x306F;H2MD&#x30A4;&#x30F3;&#x30B9;&#x30BF;&#x30F3;&#x30B9;&#x306E;API&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3001;&#x7C21;&#x6613;&#x7684;&#x306A;&#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x3068;&#x30D7;&#x30ED;&#x30B0;&#x30EC;&#x30B9;&#x30D0;&#x30FC;&#x3092;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x306A;&#x304A;&#x3001;&#x672C;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x3092;&#x53C2;&#x8003;&#x3057;&#x3066;&#x3044;&#x305F;&#x3060;&#x304F;&#x306B;&#x3042;&#x305F;&#x308A;&#x3001;&#x5B9F;&#x5229;&#x7528;&#x306E;&#x969B;&#x306B;&#x306F;&#x4EE5;&#x4E0B;&#x3054;&#x6CE8;&#x610F;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<ul>
+<li>&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x5185;&#x306E; &#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x7528;&#x30B9;&#x30D7;&#x30E9;&#x30A4;&#x30C8;&#x753B;&#x50CF; &#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x5F15;&#x7528;&#x305B;&#x305A;&#x3001;&#x3054;&#x5229;&#x7528;&#x8005;&#x69D8;&#x306B;&#x3066;&#x7D20;&#x6750;&#x3092;&#x3054;&#x7528;&#x610F;&#x304F;&#x3060;&#x3055;&#x3044;</li>
+<li>H2MD&#x306E;JavaScript&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306F;&#x3001;&#x81EA;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x306B;&#x914D;&#x7F6E;&#x3057;&#x305F;JavaScript&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x30D1;&#x30B9;&#x306B;&#x7F6E;&#x304D;&#x63DB;&#x3048;&#x304F;&#x3060;&#x3055;&#x3044;</li>
+</ul>
+<pre><code class="lang-css"><span class="hljs-id">#playerContainer</span> <span class="hljs-rules">{ 
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>; 
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>; 
+  <span class="hljs-rule"><span class="hljs-attribute">bottom</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>; 
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>; 
+  <span class="hljs-rule"><span class="hljs-attribute">right</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">320px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">180px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"> <span class="hljs-number">0px</span> auto</span></span>;
+}</span> 
+<span class="hljs-id">#player</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">320px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">180px</span></span></span>;
+}</span>
+<span class="hljs-id">#controller</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">bottom</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">z-index</span>:<span class="hljs-value"> <span class="hljs-number">10</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">25px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-function">rgba</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>)</span></span>;
+}</span>
+<span class="hljs-id">#toggleButton</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+  <span class="hljs-comment">/*
+      &#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x7528;&#x30B9;&#x30D7;&#x30E9;&#x30A4;&#x30C8;&#x753B;&#x50CF;&#x3092;&#x6307;&#x5B9A;(&#x5404;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x304C;27px)
+      (&#x3053;&#x3061;&#x3089;&#x306F;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x7528;&#x753B;&#x50CF;&#x306A;&#x306E;&#x3067;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x4F7F;&#x7528;&#x3057;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;)
+  */</span>
+  <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> transparent <span class="hljs-function">url</span>(https://s.yimg.jp/bdv/yahoo/rl/img/common/playerUi.png) no-repeat -<span class="hljs-number">27px</span> <span class="hljs-number">50%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background-size</span>:<span class="hljs-value"> auto <span class="hljs-number">27px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">z-index</span>:<span class="hljs-value"> <span class="hljs-number">10</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">27px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+}</span>
+<span class="hljs-id">#progressBar</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">50%</span></span></span>; 
+  <span class="hljs-rule"><span class="hljs-attribute">z-index</span>:<span class="hljs-value"> <span class="hljs-number">10</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">right</span>:<span class="hljs-value"> <span class="hljs-number">10px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">280px</span></span></span>;
+}</span>
+<span class="hljs-id">#loadedBar</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">50%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#eee</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">z-index</span>:<span class="hljs-value"> <span class="hljs-number">10</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">3px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transform</span>:<span class="hljs-value"> <span class="hljs-function">translateY</span>(-<span class="hljs-number">50%</span>)</span></span>;
+}</span>
+<span class="hljs-id">#advanceBar</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">50%</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">0</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">background-color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#2E9AFE</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">z-index</span>:<span class="hljs-value"> <span class="hljs-number">20</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">0px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">3px</span></span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">transform</span>:<span class="hljs-value"> <span class="hljs-function">translateY</span>(-<span class="hljs-number">50%</span>)</span></span>;
+}</span>
+</code></pre>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;playerContainer&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">canvas</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;player&quot;</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">640</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">360</span>&gt;</span>
+      This browser not supported canvas.
+  <span class="hljs-tag">&lt;/<span class="hljs-title">canvas</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;controller&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;toggleButton&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;progressBar&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;loadedBar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;advanceBar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;</span>
+<span class="hljs-keyword">var</span> toggleButton = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;toggleButton&apos;</span>);
+<span class="hljs-comment">// &#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x7528;&#x30B9;&#x30D7;&#x30E9;&#x30A4;&#x30C8;&#x753B;&#x50CF;(&#x5404;&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x304C;27px)</span>
+<span class="hljs-comment">// (&#x3053;&#x3061;&#x3089;&#x306F;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x7528;&#x753B;&#x50CF;&#x306A;&#x306E;&#x3067;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x4F7F;&#x7528;&#x3057;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;)</span>
+<span class="hljs-keyword">var</span> toggleButtonImg = <span class="hljs-string">&apos;https://s.yimg.jp/bdv/yahoo/rl/img/common/playerUi.png&apos;</span>;
+<span class="hljs-comment">// &#x30D7;&#x30ED;&#x30B0;&#x30EC;&#x30B9;&#x30D0;&#x30FC;</span>
+<span class="hljs-keyword">var</span> advanceBar = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;advanceBar&apos;</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">switchToggleButton</span>(<span class="hljs-params">isPlaying</span>) </span>{
+  <span class="hljs-keyword">if</span> (isPlaying) {
+    <span class="hljs-comment">// &#x518D;&#x751F;&#x4E2D;&#x3067;&#x3042;&#x308C;&#x3070;&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;</span>
+    toggleButton.style.background = <span class="hljs-string">&apos;transparent url(&apos;</span> + toggleButtonImg + <span class="hljs-string">&apos;) no-repeat -27px 50%&apos;</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-comment">// &#x505C;&#x6B62;&#x4E2D;&#x3067;&#x3042;&#x308C;&#x3070;&#x518D;&#x751F;&#x30DC;&#x30BF;&#x30F3;&#x306B;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;</span>
+    toggleButton.style.background = <span class="hljs-string">&apos;transparent url(&apos;</span> + toggleButtonImg + <span class="hljs-string">&apos;) no-repeat 0px 50%&apos;</span>;
+  }
+  toggleButton.style.backgroundSize = <span class="hljs-string">&apos;auto 27px&apos;</span>;
+}
+
+<span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> H2MD();
+player.jsonp(<span class="hljs-literal">true</span>);
+player.canvas(<span class="hljs-string">&apos;player&apos;</span>);
+
+player.timeupdate(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// &#x73FE;&#x5728;&#x306E;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x3092;&#x53D6;&#x5F97;</span>
+  <span class="hljs-keyword">var</span> currentFrame = player.position().current_frame;
+  <span class="hljs-comment">// timeupdate&#x6642;&#x306B;&#x53C2;&#x7167;&#x53EF;&#x80FD;&#x306A;&#x6700;&#x7D42;&#x30D5;&#x30EC;&#x30FC;&#x30E0;(&#x7DCF;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x6570; - 1)&#x3092;&#x53D6;&#x5F97;</span>
+  <span class="hljs-keyword">var</span> lastFrame = player.info().frames - <span class="hljs-number">1</span>;
+  <span class="hljs-comment">// &#x73FE;&#x5728;&#x306E;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x3068;&#x6700;&#x7D42;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x304B;&#x3089;&#x30D7;&#x30ED;&#x30B0;&#x30EC;&#x30B9;&#x30D0;&#x30FC;&#x306E;&#x5E45;&#x3092;&#x7B97;&#x51FA;&#x3057;&#x3066;&#x6307;&#x5B9A;(%)</span>
+  advanceBar.style.width = <span class="hljs-built_in">Math</span>.floor(currentFrame / lastFrame * <span class="hljs-number">100</span>) + <span class="hljs-string">&quot;%&quot;</span>;
+
+  <span class="hljs-comment">// &#x6700;&#x5F8C;&#x307E;&#x3067;&#x518D;&#x751F;&#x3055;&#x308C;&#x305F;&#x3089;&#x518D;&#x751F;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;</span>
+  <span class="hljs-keyword">if</span> (currentFrame === lastFrame) {
+    switchToggleButton(player.playing());
+  }
+});
+
+player.open(<span class="hljs-string">&apos;https://s.yimg.jp/bdv/yahoo/rl/img/smartvision/h2md/trimmed_2&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// &#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x306B;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x3092;&#x5B9A;&#x7FA9;</span>
+  toggleButton.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (player.playing()) {
+      <span class="hljs-comment">// &#x518D;&#x751F;&#x4E2D;&#x3067;&#x3042;&#x308C;&#x3070;&#x505C;&#x6B62;</span>
+      player.pause();
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// &#x505C;&#x6B62;&#x4E2D;&#x3067;&#x3042;&#x308C;&#x3070;&#x518D;&#x958B;</span>
+      player.play();
+    }
+    <span class="hljs-comment">// &#x518D;&#x751F;/&#x505C;&#x6B62;&#x30DC;&#x30BF;&#x30F3;&#x5207;&#x308A;&#x66FF;&#x3048;</span>
+    switchToggleButton(player.playing());
+  });
+
+  player.play();
+});
+</code></pre>
+<iframe src="./demo_controller.html" style="height:250px;"></iframe>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../example/inview_play.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 動画のインビュー再生"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[],"gitbook":false},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

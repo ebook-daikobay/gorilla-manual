@@ -55,7 +55,7 @@
         data-chapter-title="H2MD動画を再生する方法"
         data-filepath="example/play.md"
         data-basepath=".."
-        data-revision="Wed May 10 2017 11:56:19 GMT+0900 (JST)"
+        data-revision="Wed May 10 2017 12:09:15 GMT+0900 (JST)"
         data-innerlanguage="">
     
 
@@ -349,6 +349,21 @@
             
         </li>
     
+        <li class="chapter " data-level="3.10" data-path="example/controller.html">
+            
+                
+                    <a href="../example/controller.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        コントローラーの実装
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -418,6 +433,19 @@ instance.open(<span class="hljs-string">&apos;h2md&#x30EA;&#x30BD;&#x30FC;&#x30B
 </code></pre>
 <p>&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <iframe src="./demo_play.html"></iframe>
+
+<p>&#x307E;&#x305F;&#x3001;jsonp&#x5F62;&#x5F0F;&#x3067;&#x540C;&#x3058;&#x52D5;&#x753B;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x8907;&#x6570;&#x52D5;&#x753B;&#x518D;&#x751F;&#x3092;&#x3059;&#x308B;&#x5834;&#x5408;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x9806;&#x756A;&#x306B;H2MD&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x3044;&#x305F;&#x3060;&#x304F;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-js">instance1.open(<span class="hljs-string">&apos;h2md&#x30EA;&#x30BD;&#x30FC;&#x30B9;&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  instance2.open(<span class="hljs-string">&apos;instance1&#x3067;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x540C;&#x3058;h2md&#x30EA;&#x30BD;&#x30FC;&#x30B9;&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+  });
+});
+</code></pre>
+<p>&#x540C;&#x3058;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x9806;&#x756A;&#x306B;&#x8AAD;&#x307F;&#x8FBC;&#x3080;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<pre><code class="lang-js">instance1.open(<span class="hljs-string">&apos;h2md&#x30EA;&#x30BD;&#x30FC;&#x30B9;&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+}); 
+instance2.open(<span class="hljs-string">&apos;instance1&#x3067;&#x8AAD;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x3044;&#x308B;&#x3082;&#x306E;&#x3068;&#x5225;&#x306E;h2md&#x30EA;&#x30BD;&#x30FC;&#x30B9;&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+});
+</code></pre>
 
                     
                     </section>
