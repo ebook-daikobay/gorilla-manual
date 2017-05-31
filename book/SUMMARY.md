@@ -12,6 +12,7 @@
   * [使うH2MDリソースを変える](example/device_play.md)
   * [読み込み完了を待って再生](example/buffered_play.md)
   * [2つのプレイヤーをシンクさせる](example/sync_play.md)
+  * [数値を計測する](example/analytics.md)
   * [音声と同時に再生させる方法](example/audio_play.md)
   * [端末によってサイズを変更する](example/responsive.md)
   * [2つのアルファ動画の再生](example/w_alpha_play.md)
