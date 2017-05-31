@@ -9,8 +9,8 @@
 [ダウンロード](./h2mdjs.zip)
 
 ### CDN
-<pre><code>{{ book.js.https }}
-{{ book.webgljs.https }}</code></pre>
+<pre><code>{{ book.webgljs.https }}
+{{ book.js.https }}</code></pre>
 
 クロスドメイン問題が発生するため、および許可なく更新するため、自社サイト上からの上記URLを参照してH2MDを動作させる運用は非推奨としております。
 
@@ -27,7 +27,7 @@
 
 #### h2md.webgl.min.jsについて 
 
-h2md.webgl.min.jsを利用することによって、WebGLによるアクセラレーション機能を有効にできます。詳しくは、以下ドキュメントをご参照ください。
+h2md.min.jsを読み込む前に、h2md.webgl.min.jsを読み込ませることで、WebGLによるアクセラレーションが有効になります。詳しくは、以下ドキュメントをご参照ください。
 
 [WebGLによるアクセラレーション（Experimental）(外部リンク)](https://h2md.axell-embedded.com/supports/documents.html#docu_link4_6)
 
